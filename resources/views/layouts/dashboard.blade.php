@@ -22,7 +22,7 @@
     <div class="flex h-screen z-20">
         {{-- side menu --}}
         <div x-bind:class="! menu_open ? '-left-64' : 'left-0'" @click.outside="menu_open = false"
-            class="transition-all duration-500 ease-in-out w-64 h-full shadow-md flex-none absolute bg-slate-100 z-40 md:left-0 md:relative md:block"
+            class="transition-all duration-500 ease-in-out w-64 h-full shadow-md flex-none absolute bg-slate-50 z-40 md:left-0 md:relative md:block"
             id="sideNavMain">
             {{-- logo --}}
             <div class="p-2">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="grow">
-            <div class="nav h-15 bg-white border-b">
+            <div class="nav h-15 bg-slate-50 border-b">
                 <div class="flex justify-between">
                     <div class="flex focus:outline-none">
                         <a class="focus:bg-slate-200 block md:hidden mx-5 my-auto pt-3 " href="#"
