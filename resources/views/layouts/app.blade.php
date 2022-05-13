@@ -15,22 +15,149 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpine-turbo-drive-adapter2.0.x/dist/alpine-turbo-drive-adapter.min.js" defer>
+    </script>
+    {{-- Livewire --}}
+    @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 flex flex-col">
-        <!-- Page Heading -->
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                @include('layouts.navigation')
+<body class="font-sans antialiased max-h-screen overflow-hidden" x-data="{menu_open: false}">
+    <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-10 opacity-25"></div>
+    <div class="flex h-screen z-20">
+        {{-- side menu --}}
+        <div x-bind:class="! menu_open ? '-left-64' : 'left-0'" @click.outside="menu_open = false"
+            class="transition-all duration-500 ease-in-out w-64 h-full shadow-md flex-none absolute bg-slate-50 z-40 md:left-0 md:relative md:block"
+            id="sideNavMain">
+            {{-- logo --}}
+            <div class="p-2">
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('home') }}">
+                        <img class="max-w-full h-auto" src="{{ asset('images/logo3.png')}}" alt="OTM Logo">
+                    </a>
+                </div>
             </div>
-        </header>
+            {{-- <x-button>test</x-button> --}}
+            <ul class="relative px-1">
 
-        <!-- Page Content -->
-        <main class="flex flex-grow">
-            {{ $slot }}
-        </main>
+                {{-- home button --}}
+                <x-menu-item-link class="my-3" :active="request()->url() == route('home')" href="/">
+                    <i class="ri-home-5-line mr-2 w-4"></i>
+                    <span>Home</span>
+                </x-menu-item-link>
+
+                {{-- Outbound --}}
+                <x-menu-item-link :active="request()->routeIs('outbound')" href="{{route('outbound')}}">
+                    <i class="ri-arrow-right-line mr-2 w-4"></i>
+                    <span>Outbound</span>
+                </x-menu-item-link>
+
+                {{-- Inbound --}}
+                <x-menu-item-link :active="request()->routeIs('inbound')" href="{{route('inbound')}}">
+                    <i class="ri-arrow-left-line mr-2 w-4"></i>
+                    <span>Inbound</span>
+                </x-menu-item-link>
+
+                {{-- loads --}}
+                <x-menu-item-link :active="request()->routeIs('loads')" href="{{route('loads')}}">
+                    <i class="ri-luggage-cart-fill mr-2 w-4"></i>
+                    <span>Loads</span>
+                </x-menu-item-link>
+
+                {{-- planning --}}
+                <x-menu-item-link :active="request()->routeIs('planning')" href="{{route('planning')}}">
+                    <i class="ri-guide-line mr-2 w-4"></i>
+                    <span>Planning</span>
+                </x-menu-item-link>
+            </ul>
+
+            <div class="absolute bottom-0">
+                <div class="pt-4 pb-1 px-2">
+                    <span class="text-xs text-gray-500">Open Transport Manager v{{ env('APP_VER', 'n/a') }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="grow flex flex-col">
+            <div class="flex nav h-15 bg-slate-50 border-b">
+                <div class="grow flex justify-between">
+                    {{-- menu hamburger --}}
+                    <div class="flex focus:outline-none">
+                        <a class="focus:bg-slate-200 block md:hidden mx-5 my-auto pt-3 " data-turbolinks="false" @click.debounce.50ms="menu_open = !menu_open"><i class="ri-menu-line ri-xl"></i></a>
+                    </div>
+                    <div class="flex justify-end">
+                        <div class="pt-4 pb-2 px-6">
+                            <div class="flex gap-x-4">
+                                {{-- help link --}}
+                                <button
+                                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <a href="#" @click.prevent="alert('here will be a link to help page')">
+                                        <div class="flex items-center">
+                                            <div class="shrink-0">
+                                                <i class="ri-question-line ri-lg"></i>
+                                            </div>
+                                            <div class="grow ml-1 mb-1">
+                                                <p class="text-sm font-semibold text-gray-600">
+                                                    Help
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <div class="ml-1 mb-1">
+
+                                    </div>
+                                </button>
+
+                                <x-dropdown align="right" width="48" >
+                                    <x-slot name="trigger">
+                                        <button
+                                            class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                            <a data-turbolinks="false">
+                                                <div class="flex items-center">
+                                                    <div class="shrink-0">
+                                                        <i class="ri-user-3-line ri-lg"></i>
+                                                    </div>
+                                                    <div class="grow ml-1 mb-1">
+                                                        <p class="text-sm font-semibold text-gray-600">
+                                                            Account
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <div class="ml-1 mb-1">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <x-dropdown-link :href="route('logout')"
+                                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </x-dropdown-link>
+                                        </form>
+                                    </x-slot>
+                                </x-dropdown>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex-1 overflow-y-auto my-3 px-3">
+                {{ $slot }}
+            </div>
+        </div>
     </div>
+    @livewireScripts
 </body>
 
 </html>
