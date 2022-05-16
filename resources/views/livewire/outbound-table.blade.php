@@ -73,7 +73,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full overflow-auto md:max-w-screen-md md:min-w-full sm:max-w-screen-sm sm:min-w-screen-full">
+                    <div
+                        class="w-full overflow-auto md:max-w-screen-md md:min-w-full sm:max-w-screen-sm sm:min-w-screen-full">
                         <table class="w-full">
                             <thead class="bg-gray-100 border-b hidden md:table-header-group">
                                 <tr class="rounded rounded-md">
