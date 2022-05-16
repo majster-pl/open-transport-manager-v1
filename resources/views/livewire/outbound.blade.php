@@ -1,3 +1,3 @@
 <div>
-    Outbound Page
+    @livewire('outbound-table')
 </div>

@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpine-turbo-drive-adapter2.0.x/dist/alpine-turbo-drive-adapter.min.js" defer>
-    </script>
     {{-- Livewire --}}
     @livewireStyles
 </head>
