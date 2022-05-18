@@ -884,6 +884,9 @@ select {
 .form-range:disabled::-moz-range-thumb {
   background-color: #adb5bd;
 }
+.form-floating {
+  position: relative;
+}
 .form-floating > .form-control {
   height: calc(3.5rem + 2px);
   line-height: 1.25;
@@ -892,6 +895,17 @@ select {
 .form-floating > .form-select {
   height: calc(3.5rem + 2px);
   line-height: 1.25;
+}
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 .form-floating > .form-control::-moz-placeholder {
   color: transparent;
@@ -4229,6 +4243,9 @@ textarea.form-control.is-invalid {
 .z-50 {
   z-index: 50;
 }
+.z-30 {
+  z-index: 30;
+}
 .order-first {
   order: -9999;
 }
@@ -4243,6 +4260,9 @@ textarea.form-control.is-invalid {
 }
 .m-0 {
   margin: 0px;
+}
+.m-3 {
+  margin: 0.75rem;
 }
 .my-3 {
   margin-top: 0.75rem;
@@ -4394,6 +4414,19 @@ textarea.form-control.is-invalid {
 .h-48 {
   height: 12rem;
 }
+.h-32 {
+  height: 8rem;
+}
+.h-fit {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.h-max {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
 .max-h-screen {
   max-height: 100vh;
 }
@@ -4435,6 +4468,17 @@ textarea.form-control.is-invalid {
 }
 .w-28 {
   width: 7rem;
+}
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.w-12 {
+  width: 3rem;
+}
+.w-32 {
+  width: 8rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -4576,11 +4620,18 @@ textarea.form-control.is-invalid {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-scroll {
+  overflow: scroll;
+}
 .overflow-x-auto {
   overflow-x: auto;
 }
 .overflow-y-auto {
   overflow-y: auto;
+}
+.overscroll-auto {
+  -ms-scroll-chaining: chained;
+      overscroll-behavior: auto;
 }
 .text-ellipsis {
   text-overflow: ellipsis;
@@ -5293,6 +5344,12 @@ textarea.form-control.is-invalid {
     height: 5rem;
   }
 
+  .sm\:h-max {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -5319,6 +5376,10 @@ textarea.form-control.is-invalid {
 
   .sm\:justify-between {
     justify-content: space-between;
+  }
+
+  .sm\:overflow-auto {
+    overflow: auto;
   }
 
   .sm\:rounded-lg {
@@ -5401,6 +5462,12 @@ textarea.form-control.is-invalid {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:w-96 {
+    width: 24rem;
   }
 }
 

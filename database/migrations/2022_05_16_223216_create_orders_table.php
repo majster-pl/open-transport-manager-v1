@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->date('created_date');
             $table->tinyInteger('pickticket_status');
-            $table->integer('pckticket_control');
-            $table->integer('ar_account');
-            $table->integer('ship_to');
+            $table->string('pickticket_control')->unique();
+            $table->string('ar_account');
+            $table->string('ship_to');
             $table->string('ship_to_name');
             $table->string('customer_po');
-            $table->integer('order');
+            $table->string('order');
             $table->tinyText('planned_ship_via');
             $table->float('value', 8, 2);
 

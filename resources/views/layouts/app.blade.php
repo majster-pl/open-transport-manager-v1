@@ -20,8 +20,8 @@
 </head>
 
 <body class="font-sans antialiased max-h-screen overflow-hidden" x-data="{menu_open: false}">
-    <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-10 opacity-25"></div>
-    <div class="flex h-screen z-20">
+    <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-20 opacity-25"></div>
+    <div class="flex h-screen z-30">
         {{-- side menu --}}
         <div x-bind:class="! menu_open ? '-left-64' : 'left-0'" @click.outside="menu_open = false"
             class="transition-all duration-500 ease-in-out w-64 h-full shadow-md flex-none absolute bg-slate-50 z-40 md:left-0 md:relative md:block"
@@ -150,7 +150,7 @@
                 </div>
 
             </div>
-            <div class="flex-1 overflow-y-auto my-3 px-3">
+            <div class="flex-1">
                 {{ $slot }}
             </div>
         </div>
