@@ -45,13 +45,13 @@
 
                 {{-- Outbound --}}
                 <x-menu-item-link :active="request()->routeIs('outbound')" href="{{route('outbound')}}">
-                    <i class="ri-arrow-right-line mr-2 w-4"></i>
+                    <i class="ri-inbox-unarchive-line mr-2 w-4"></i>
                     <span>Outbound</span>
                 </x-menu-item-link>
 
                 {{-- Inbound --}}
                 <x-menu-item-link :active="request()->routeIs('inbound')" href="{{route('inbound')}}">
-                    <i class="ri-arrow-left-line mr-2 w-4"></i>
+                    <i class="ri-inbox-archive-line mr-2 w-4"></i>
                     <span>Inbound</span>
                 </x-menu-item-link>
 
@@ -63,8 +63,14 @@
 
                 {{-- planning --}}
                 <x-menu-item-link :active="request()->routeIs('planning')" href="{{route('planning')}}">
-                    <i class="ri-guide-line mr-2 w-4"></i>
+                    <i class="ri-git-merge-line mr-2 w-4"></i>
                     <span>Planning</span>
+                </x-menu-item-link>
+
+                {{-- orders --}}
+                <x-menu-item-link :active="request()->routeIs('orders')" href="{{route('orders')}}">
+                    <i class="ri-shopping-bag-line mr-2 w-4"></i>
+                    <span>Orders</span>
                 </x-menu-item-link>
             </ul>
 
@@ -79,7 +85,8 @@
                 <div class="grow flex justify-between">
                     {{-- menu hamburger --}}
                     <div class="flex focus:outline-none">
-                        <a class="focus:bg-slate-200 block md:hidden mx-5 my-auto pt-3 " data-turbolinks="false" @click.debounce.50ms="menu_open = !menu_open"><i class="ri-menu-line ri-xl"></i></a>
+                        <a class="focus:bg-slate-200 block md:hidden mx-5 my-auto pt-3 " data-turbolinks="false"
+                            @click.debounce.50ms="menu_open = !menu_open"><i class="ri-menu-line ri-xl"></i></a>
                     </div>
                     <div class="flex justify-end">
                         <div class="pt-4 pb-2 px-6">
@@ -105,7 +112,7 @@
                                     </div>
                                 </button>
 
-                                <x-dropdown align="right" width="48" >
+                                <x-dropdown align="right" width="48">
                                     <x-slot name="trigger">
                                         <button
                                             class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
