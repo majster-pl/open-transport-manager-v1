@@ -31,18 +31,18 @@
                 </select>
 
                 <div class="flex flex-row gap-1">
-
+                    {{-- {{ $dateFrom}} --}}
                     <span class="my-auto">From:</span>
                     <div class="datepicker" data-mdb-toggle-button="false">
                         <input type="date"
                             class="form-control rounded rounded-lg block w-36 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="From date" wire:model.lazy="dateFrom" />
+                            placeholder="From date" wire:model="dateFrom" />
                     </div>
                     <span class="my-auto ml-2">To:</span>
                     <div class="datepicker" data-mdb-toggle-button="false">
                         <input type="date"
                             class="form-control rounded rounded-lg block w-36 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="To date" wire:model.lazy="dateTo" />
+                            placeholder="To date" wire:model="dateTo" />
                     </div>
                 </div>
             </div>

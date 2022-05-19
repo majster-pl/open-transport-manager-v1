@@ -11,7 +11,6 @@ class OrdersTable extends Component
 {
     use WithPagination;
     
-    // public $orders_;
     public $dateFrom;
     public $dateTo;
     public $itemsPerPage;
@@ -21,8 +20,6 @@ class OrdersTable extends Component
         $this->dateFrom = Carbon::now()->subDays(3)->format('Y-m-d');
         $this->dateTo = Carbon::now()->format('Y-m-d');
         $this->itemsPerPage = 50;
-
-        // $this->orders_ = Order::whereBetween('created_date', [$this->dateFrom, $this->dateTo])->paginate(10);
     }
 
     public function updated()
@@ -32,13 +29,6 @@ class OrdersTable extends Component
         ]);
     }
 
-    public function changeDateFrom()
-    {
-        dd('$date');
-        # code...
-        // $this->dateFrom = Carbon::create($date)->format('Y-m-d');
-        // $this->orders = Order::whereBetween('created_date', [$this->dateFrom, $this->dateTo])->get();
-    }
 
     public function render()
     {
