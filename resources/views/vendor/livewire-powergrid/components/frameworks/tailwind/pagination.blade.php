@@ -64,7 +64,7 @@
 
                             @foreach ($element as $page => $url)
                                 @if ($paginator->currentPage() > 3 && $page === 2)
-                                    <div class="mx-1 mt-1 text-gray-800 dark:text-gray-300">
+                                    <div class="mx-1 mt-1 text-gray-800 flex flex-row dark:text-gray-300">
                                         <span class="font-bold">.</span>
                                         <span class="font-bold">.</span>
                                         <span class="font-bold">.</span>
@@ -80,7 +80,7 @@
                                 @endif
 
                                 @if ($paginator->currentPage() < $paginator->lastPage() - 2  && $page === $paginator->lastPage() - 1)
-                                    <div class="mx-1 mt-1 text-gray-600 dark:text-gray-300">
+                                    <div class="mx-1 mt-1 flex flex-row text-gray-600 dark:text-gray-300">
                                         <span>.</span>
                                         <span>.</span>
                                         <span>.</span>

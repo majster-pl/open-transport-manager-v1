@@ -24,7 +24,7 @@
                 @include($theme->layout->message)
             </div>
 
-            <div class="{{ $theme->table->divClass }} max-h-[calc(100vh-12rem)]" style="{{ $theme->table->divStyle }}">
+            <div class="{{ $theme->table->divClass }} max-h-[calc(100vh-19rem)] md:max-h-[calc(100vh-11.5rem)]" style="{{ $theme->table->divStyle }}">
                 @include($table)
             </div>
 

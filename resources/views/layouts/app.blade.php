@@ -20,7 +20,7 @@
     @powerGridStyles
 </head>
 
-<body class="font-sans antialiased max-h-screen overflow-hidden" x-data="{menu_open: false}">
+<body class="font-sans antialiased max-h-screen overflow-auto w-[calc(100vw)] min-w-[400px]" x-data="{menu_open: false}">
     <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-20 opacity-25"></div>
     <div class="max-w-screen max-h-screen">
 
@@ -162,8 +162,8 @@
             </div>
 
             <!-- main content view -->
-            <div class="h-full bg-white">
-                <div class="mx-auto max-h-80 px-6 pt-3 md:px-1 md:pt-2">
+            <div class="h-full overflow-auto bg-white">
+                <div class="mx-auto  px-6 pt-3 md:px-1 md:pt-2">
                     <div>{{ $slot }}</div>
                 </div>
             </div>
