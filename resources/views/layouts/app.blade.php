@@ -162,8 +162,8 @@
             </div>
 
             <!-- main content view -->
-            <div class="h-full overflow-auto bg-white">
-                <div class="mx-auto h-fit w-fit px-6 pt-3 md:px-1 md:pt-2">
+            <div class="h-full bg-white">
+                <div class="mx-auto max-h-80 px-6 pt-3 md:px-1 md:pt-2">
                     <div>{{ $slot }}</div>
                 </div>
             </div>
