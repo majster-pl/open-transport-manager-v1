@@ -5004,6 +5004,9 @@ textarea.form-control.is-invalid {
 .border-4 {
   border-width: 4px;
 }
+.border-0 {
+  border-width: 0;
+}
 .border-b {
   border-bottom-width: 1px;
 }

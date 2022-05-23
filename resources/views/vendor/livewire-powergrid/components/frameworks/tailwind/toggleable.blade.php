@@ -20,7 +20,7 @@
                     class="absolute left-0 bg-white border-2 mb-2 w-6 h-6 rounded-full transition transform duration-100 ease-linear cursor-pointer"
                     :class="[toggle === 1 ? 'translate-x-full border-blue-400' : 'translate-x-0 border-gray-400']"></label>
                 <input type="checkbox"
-                       class="appearance-none w-full h-full active:outline-none focus:outline-none"
+                       class="appearance-none w-full h-full active:outline-none opacity-0 hover:cursor-pointer focus:outline-none"
                        x-on:click="save">
             </div>
         </div>
