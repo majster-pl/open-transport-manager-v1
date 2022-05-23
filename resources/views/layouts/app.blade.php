@@ -21,13 +21,13 @@
 </head>
 
 <body class="font-sans antialiased max-h-screen overflow-auto w-[calc(100vw)] min-w-[400px]" x-data="{menu_open: false}">
-    <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-20 opacity-25"></div>
+    <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-30 opacity-25"></div>
     <div class="max-w-screen max-h-screen">
 
         <!-- sidebar -->
 
         <div x-bind:class="! menu_open ? '-left-48' : 'left-[0.1px]'" @click.outside="menu_open = false"
-            class="max-w-48 min-w-48 fixed -left-48 z-20 h-screen w-48 bg-slate-50 transition-all md:static md:float-left">
+            class="max-w-48 min-w-48 fixed -left-48 z-40 h-screen w-48 bg-slate-50 transition-all md:static md:float-left">
 
             {{-- logo --}}
             <div class="p-2">
