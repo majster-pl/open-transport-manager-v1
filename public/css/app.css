@@ -4348,6 +4348,9 @@ textarea.form-control.is-invalid {
 .z-50 {
   z-index: 50;
 }
+.z-30 {
+  z-index: 30;
+}
 .order-first {
   order: -9999;
 }

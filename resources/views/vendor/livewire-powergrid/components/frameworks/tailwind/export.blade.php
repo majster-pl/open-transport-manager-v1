@@ -15,7 +15,7 @@
          x-transition:leave="transform duration-200"
          x-transition:leave-start="opacity-100 scale-100"
          x-transition:leave-end="opacity-0 scale-90"
-         class="mt-2 w-auto bg-white shadow-xl absolute z-10 dark:bg-gray-500">
+         class="mt-2 w-auto bg-white shadow-xl absolute z-30 dark:bg-gray-500">
 
         @if(in_array('excel',$exportType))
             <div class="flex px-4 py-2 text-gray-400 dark:text-gray-300">
