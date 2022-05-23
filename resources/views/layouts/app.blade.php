@@ -17,15 +17,18 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     {{-- Livewire --}}
     @livewireStyles
+    @powerGridStyles
 </head>
 
-<body class="font-sans antialiased max-h-screen overflow-hidden" x-data="{menu_open: false}">
+<body class="font-sans antialiased max-h-screen overflow-auto w-[calc(100vw)] min-w-[400px]" x-data="{menu_open: false}">
     <div x-show="menu_open" class="md:hidden w-screen h-screen absolute bg-gray-600 z-20 opacity-25"></div>
-    <div class="flex h-screen z-30">
-        {{-- side menu --}}
-        <div x-bind:class="! menu_open ? '-left-64' : 'left-0'" @click.outside="menu_open = false"
-            class="transition-all duration-500 ease-in-out w-64 h-full shadow-md flex-none absolute bg-slate-50 z-40 md:left-0 md:relative md:block"
-            id="sideNavMain">
+    <div class="max-w-screen max-h-screen">
+
+        <!-- sidebar -->
+
+        <div x-bind:class="! menu_open ? '-left-48' : 'left-[0.1px]'" @click.outside="menu_open = false"
+            class="max-w-48 min-w-48 fixed -left-48 z-20 h-screen w-48 bg-slate-50 transition-all md:static md:float-left">
+
             {{-- logo --}}
             <div class="p-2">
                 <div class="shrink-0 flex items-center">
@@ -80,91 +83,97 @@
                 </div>
             </div>
         </div>
-        <div class="grow flex flex-col">
-            <div class="flex nav h-15 bg-slate-50 border-b">
-                <div class="grow flex justify-between">
-                    {{-- menu hamburger --}}
-                    <div class="flex focus:outline-none">
+
+        <div class="relative flex h-screen flex-col overflow-auto bg-slate-300 md:relative">
+
+            <!-- top menu bar -->
+            <div class="min-h-12 h-12 w-full flex-none bg-slate-50 px-3">
+                <div class="float-left flex h-full md:hidden">
+                    <div class="m-auto">
                         <a class="focus:bg-slate-200 block md:hidden mx-5 my-auto pt-3 " data-turbolinks="false"
                             @click.debounce.50ms="menu_open = !menu_open"><i class="ri-menu-line ri-xl"></i></a>
                     </div>
-                    <div class="flex justify-end">
-                        <div class="pt-4 pb-2 px-6">
-                            <div class="flex gap-x-4">
-                                {{-- help link --}}
-                                <button
-                                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <a href="#" @click.prevent="alert('here will be a link to help page')">
-                                        <div class="flex items-center">
-                                            <div class="shrink-0">
-                                                <i class="ri-question-line ri-lg"></i>
-                                            </div>
-                                            <div class="grow ml-1 mb-1">
-                                                <p class="text-sm font-semibold text-gray-600">
-                                                    Help
-                                                </p>
-                                            </div>
+                </div>
+
+                <div class="float-right flex h-full">
+                    <div class="m-auto">
+                        <div class="flex gap-x-4">
+                            {{-- help link --}}
+                            <button
+                                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <a href="#" @click.prevent="alert('here will be a link to help page')">
+                                    <div class="flex items-center">
+                                        <div class="shrink-0">
+                                            <i class="ri-question-line ri-lg"></i>
                                         </div>
-                                    </a>
-
-                                    <div class="ml-1 mb-1">
-
+                                        <div class="grow ml-1 mb-1">
+                                            <p class="text-sm font-semibold text-gray-600">
+                                                Help
+                                            </p>
+                                        </div>
                                     </div>
-                                </button>
+                                </a>
+                            </button>
 
-                                <x-dropdown align="right" width="48">
-                                    <x-slot name="trigger">
-                                        <button
-                                            class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                            <a data-turbolinks="false">
-                                                <div class="flex items-center">
-                                                    <div class="shrink-0">
-                                                        <i class="ri-user-3-line ri-lg"></i>
-                                                    </div>
-                                                    <div class="grow ml-1 mb-1">
-                                                        <p class="text-sm font-semibold text-gray-600">
-                                                            Account
-                                                        </p>
-                                                    </div>
+                            <x-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                    <button
+                                        class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                        <a data-turbolinks="false">
+                                            <div class="flex items-center">
+                                                <div class="shrink-0">
+                                                    <i class="ri-user-3-line ri-lg"></i>
                                                 </div>
-                                            </a>
-
-                                            <div class="ml-1 mb-1">
-                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
+                                                <div class="grow ml-1 mb-1">
+                                                    <p class="text-sm font-semibold text-gray-600">
+                                                        Account
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </button>
-                                    </x-slot>
+                                        </a>
 
-                                    <x-slot name="content">
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <x-dropdown-link :href="route('logout')"
-                                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                                {{ __('Log Out') }}
-                                            </x-dropdown-link>
-                                        </form>
-                                    </x-slot>
-                                </x-dropdown>
+                                        <div class="ml-1 mb-1">
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </x-slot>
 
-                            </div>
+                                <x-slot name="content">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault(); this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </x-dropdown-link>
+                                    </form>
+                                </x-slot>
+                            </x-dropdown>
+
                         </div>
                     </div>
+
                 </div>
 
             </div>
-            <div class="flex-1">
-                {{ $slot }}
+
+            <!-- main content view -->
+            <div class="h-full overflow-auto bg-white">
+                <div class="mx-auto  px-6 pt-3 md:px-1 md:pt-2">
+                    <div>{{ $slot }}</div>
+                </div>
             </div>
         </div>
     </div>
+
     @livewireScripts
+    @powerGridScripts
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
-            data-turbolinks-eval="false" data-turbo-eval="false"></script>
+        data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </body>
 
 </html>

@@ -21,4 +21,9 @@ class Order extends Model
         'planned_ship_via',
         'value',
     ];
+
+    public static function status()
+    {
+        return  Self::select('pickticket_status')->distinct('pickticket_status')->orderBy('pickticket_status')->get();
+    }
 }

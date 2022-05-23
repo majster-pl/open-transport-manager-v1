@@ -1,3 +1,3 @@
-<div class="">
-    @livewire('orders-table')
+<div>
+    <livewire:orders-table />
 </div>

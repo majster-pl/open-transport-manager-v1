@@ -7,7 +7,11 @@ module.exports = {
         "./resources/views/**/*.blade.php",
         "./src/**/*.{html,js}",
         "./node_modules/tw-elements/dist/js/**/*.js",
+        "./app/Http/Livewire/**/*Table.php",
+        "./vendor/power-components/livewire-powergrid/resources/views/**/*.php",
+        "./vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php",
     ],
+    darkMode: "class",
 
     theme: {
         extend: {
@@ -30,5 +34,8 @@ module.exports = {
     plugins: [
         require("@tailwindcss/forms"),
         require("tw-elements/dist/plugin"),
+        require("@tailwindcss/forms")({
+            strategy: "class",
+        }),
     ],
 };
