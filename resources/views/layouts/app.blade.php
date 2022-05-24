@@ -33,7 +33,8 @@
             <div class="p-2">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <img class="max-w-full h-auto" src="{{ asset('images/logo3.png')}}" alt="OTM Logo">
+                        <img class="max-w-full h-auto" src="{{ asset('images/logo-no-text.svg')}}"
+                        title="Open Transport Manager" alt="OTM Logo">
                     </a>
                 </div>
             </div>

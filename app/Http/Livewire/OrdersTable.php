@@ -197,7 +197,8 @@ final class OrdersTable extends PowerGridComponent
                 ->field('value')
                 ->sortable()
                 ->searchable()
-                ->withSum('Total', true, true),
+                // ->withSum('Total', true, true)
+                ,
 
             Column::add()
                 ->title('CREATED AT')
