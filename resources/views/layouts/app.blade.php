@@ -26,14 +26,14 @@
 
         <!-- sidebar -->
 
-        <div x-bind:class="! menu_open ? '-left-48' : 'left-[0.1px]'" @click.outside="menu_open = false"
-            class="max-w-48 min-w-48 fixed -left-48 z-40 h-screen w-48 bg-slate-50 transition-all md:static md:float-left">
+        <div x-bind:class="! menu_open ? '-left-60' : 'left-[0.2px]'" @click.outside="menu_open = false"
+            class="max-w-60 min-w-60 fixed -left-60 z-40 h-screen w-60 bg-slate-50 transition-all md:static md:float-left">
 
             {{-- logo --}}
             <div class="p-2">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <img class="max-w-full h-auto" src="{{ asset('images/logo-no-text.svg')}}"
+                        <img class="max-w-full h-auto" src="{{ asset('images/logo3.svg')}}"
                         title="Open Transport Manager" alt="OTM Logo">
                     </a>
                 </div>

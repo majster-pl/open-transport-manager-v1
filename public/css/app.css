@@ -4324,6 +4324,12 @@ textarea.form-control.is-invalid {
 .top-16 {
   top: 4rem;
 }
+.-left-60 {
+  left: -15rem;
+}
+.left-\[0\.2px\] {
+  left: 0.2px;
+}
 .z-0 {
   z-index: 0;
 }
@@ -4647,6 +4653,9 @@ textarea.form-control.is-invalid {
 .w-\[calc\(100vw\)\] {
   width: calc(100vw);
 }
+.w-52 {
+  width: 13rem;
+}
 .w-2 {
   width: 0.5rem;
 }
@@ -4655,6 +4664,12 @@ textarea.form-control.is-invalid {
 }
 .w-36 {
   width: 9rem;
+}
+.w-56 {
+  width: 14rem;
+}
+.w-60 {
+  width: 15rem;
 }
 .min-w-full {
   min-width: 100%;
