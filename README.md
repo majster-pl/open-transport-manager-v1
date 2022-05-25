@@ -1,5 +1,5 @@
 
-<p  align="center"><a  target="_blank"><img  src="https://github.com/majster-pl/open-transport-manager-v1/blob/main/public/images/logo.svg?raw=true"  width="200"></a></p>
+<p  align="center"><a  target="_blank"><img  src="https://github.com/majster-pl/open-transport-manager-v1/blob/main/public/images/logo3.svg?raw=true"  width="200"></a></p>
 
   
 
